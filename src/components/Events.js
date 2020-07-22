@@ -17,7 +17,16 @@ const Events = () => {
         <TitleIcon className={classes.titleIcon} />
         Results: {events.length} Events Found
       </h3>
-      {!ready && <p>Loading...</p>}
+      {/* {!ready && <p>Loading...</p>} */}
+      {!ready && (
+        <div
+          className={
+            !ready
+              ? classes.loader
+              : classes.loaderHide
+          }
+        />
+      )}
       {ready && (
         <div className={classes.tilesWrapper}>
           <div className={classes.tiles}>
@@ -72,6 +81,32 @@ const useStyles = createUseStyles({
     },
     '@media (min-width: 1200px)': {
       width: `calc(${100 / 3}% - ${theme.gutter}px)`
+    }
+  },
+  loader: {
+    position: 'fixed',
+    zIndex: 999,
+    top: 'calc(50% - 4em)',
+    left: 'calc(50% - 4em)',
+    width: '10em',
+    height: '10em',
+    border: '1.1em solid rgba(0, 0, 0, 0.2)',
+    borderLeft: '1.1em solid #000000',
+    borderRadius: '50%',
+    animationDuration: '2s',
+    animation: '$load8 100000ms linear infinite',
+    transition: 'opacity 0.3s'
+  },
+  loaderHide: {
+    opacity: '0'
+  },
+  '@keyframes load8': {
+    '0%': {
+      transform: 'rotate(0deg)'
+    },
+
+    '100%': {
+      transform: 'rotate(360deg)'
     }
   }
 }, { name: 'Events' })
