@@ -15,13 +15,12 @@ const Events = () => {
     <div className={classes.container}>
       <h3 className={classes.title}>
         <TitleIcon className={classes.titleIcon} />
-        Results: {events.length} Events Found
+        {events[0]?.error ? 'Filter not yet implemented' : `Results: ${events && events.length} Events Found`}
       </h3>
-      {/* {!ready && <p>Loading...</p>} */}
       {!ready && (
         <div
           className={
-            !ready
+            !ready && !events[0]?.error
               ? classes.loader
               : classes.loaderHide
           }
