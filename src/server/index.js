@@ -14,6 +14,7 @@ export default function (options) {
 
   router.use('/api/events', eventsMiddleware)
   router.use('/api/favourites', favouritesMiddleware)
+  router.use('/api/favourites/:id', favouritesMiddleware)
   router.use('/', createRenderMiddleware(options))
 
   router.use(errorMiddleware)

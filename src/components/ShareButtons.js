@@ -28,6 +28,7 @@ const ShareButtons = ({ children, className, id, url, title }) => {
   const isFavourited = useSelector(isFavouritedSelector)
   const dispatch = useDispatch()
   const toggleFavourited = useCallback(() => {
+    console.log('clicked')
     dispatch(toggleFavouriteActionCreator(id))
   }, [id])
 

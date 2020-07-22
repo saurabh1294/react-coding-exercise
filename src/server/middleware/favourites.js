@@ -21,6 +21,7 @@ router.get('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
+  console.log('calling API here /:id')
   const favourites = req.session.favourites = (req.session.favourites || [])
   const id = +req.params.id
   if (favourites.indexOf(id) < 0) {

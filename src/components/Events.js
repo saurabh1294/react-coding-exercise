@@ -15,7 +15,7 @@ const Events = () => {
     <div className={classes.container}>
       <h3 className={classes.title}>
         <TitleIcon className={classes.titleIcon} />
-        {events[0]?.error ? 'Filter not yet implemented' : `Results: ${events && events.length} Events Found`}
+        {events[0]?.error ? 'API endpoint not yet implemented' : `Results: ${events && events.length} Events Found`}
       </h3>
       {!ready && (
         <div
