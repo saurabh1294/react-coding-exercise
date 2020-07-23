@@ -11,7 +11,9 @@ const reducer = (state = initialState, action) => {
     case `${TOGGLE_FAVOURITE_TYPE}_${ActionType.Pending}`:
       return {
         ...state,
-        busy: true
+        busy: true,
+        error: undefined,
+        favourites: []
       }
 
     case `${TOGGLE_FAVOURITE_TYPE}_${ActionType.Fulfilled}`:

@@ -4,6 +4,7 @@ import rejectedPromiseMiddleware from './middlewares/rejectedPromise'
 import promiseMiddleware from 'redux-promise-middleware'
 import eventsMiddleware from './middlewares/events'
 import favouritesMiddleware from './middlewares/favourites'
+import toggleFavouritesMiddleware from './middlewares/toggleFavourite'
 
 export default function (preloadedState) {
   let compose = defaultCompose
@@ -19,7 +20,8 @@ export default function (preloadedState) {
     rejectedPromiseMiddleware,
     promiseMiddleware,
     eventsMiddleware,
-    favouritesMiddleware
+    favouritesMiddleware,
+    toggleFavouritesMiddleware
   ))
 
   const store = createStore(rootReducer, preloadedState, enhancers)
